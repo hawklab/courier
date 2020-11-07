@@ -1,6 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <Sdk Name="Microsoft.Build.CentralPackageVersions" />
 
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\Servers\SMTP\SMTP.csproj" />
     <ProjectReference Include="..\..\Servers\Web\Web.csproj" />
