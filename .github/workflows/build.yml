@@ -13,6 +13,10 @@ jobs:
       image: mcr.microsoft.com/dotnet/sdk:5.0
 
     steps:
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: csharp
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: dotnet restore
@@ -20,3 +24,5 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --configuration Release --no-restore --no-build --verbosity normal
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
