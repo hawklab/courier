@@ -19,10 +19,10 @@ jobs:
         languages: csharp
     - uses: actions/checkout@v2
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore Courier.csproj
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore Courier.csproj
     - name: Test
-      run: dotnet test --configuration Release --no-restore --no-build --verbosity normal
+      run: dotnet test --configuration Release --no-restore --no-build --verbosity normal Courier.csproj
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
