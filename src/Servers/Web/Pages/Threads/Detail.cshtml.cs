@@ -15,26 +15,28 @@ namespace MyApp.Namespace
         private readonly IThreadRepository threadRepository;
         private readonly IMessageRepository messageRepository;
 
-        [TempData]
-        public string Notice { get; set; }
-        
-        public Thread Thread { get; set; }
-        [BindProperty]
-        public Message Message { get; set; }
-
         public DetailModel(IThreadRepository threadRepository, IMessageRepository messageRepository)
         {
             this.threadRepository = threadRepository;
             this.messageRepository = messageRepository;
         }
 
+        [TempData]
+        public string Notice { get; set; }
+
+        public Thread Thread { get; set; }
+
+        [BindProperty]
+        public Message Message { get; set; }
+
         public IActionResult OnGet(Guid threadId)
         {
             Thread = threadRepository.GetById(threadId);
-            if(Thread == null)
+            if (Thread == null)
             {
                 return RedirectToPage("./NotFound");
             }
+
             Message = new Message();
             return Page();
         }
@@ -55,9 +57,10 @@ namespace MyApp.Namespace
             {
                 messageRepository.Add(Message, Thread);
             }
+
             messageRepository.Commit();
             TempData["Notice"] = "Message saved";
-            return RedirectToPage("./Detail", new { threadId = threadId });
+            return RedirectToPage("./Detail", new { threadId });
         }
     }
 }

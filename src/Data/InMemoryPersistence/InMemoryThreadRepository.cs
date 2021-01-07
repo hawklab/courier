@@ -1,16 +1,14 @@
-using System.Collections.Generic;
-using System.Linq;
-using HawkLab.Data.Core.Persistence;
-using HawkLab.Data.Core.Types;
-using System;
-
-
 namespace HawkLab.Data.InMemoryPersistence
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using HawkLab.Data.Core.Persistence;
+    using HawkLab.Data.Core.Types;
+
     public class InMemoryThreadRepository : IThreadRepository
     {
-
-        readonly List<Thread> threads;
+        private readonly List<Thread> threads;
 
         public InMemoryThreadRepository()
         {
@@ -31,10 +29,10 @@ namespace HawkLab.Data.InMemoryPersistence
         public Thread Add(Thread newThread)
         {
             threads.Add(newThread);
+
             // newThread.Id = threads.Max(r => r.Id) + 1;
             return newThread;
         }
-
 
         public Thread Update(Thread updatedThread)
         {
@@ -61,11 +59,9 @@ namespace HawkLab.Data.InMemoryPersistence
                    select t;
         }
 
-         public void Delete(Thread theThread)
+        public void Delete(Thread theThread)
         {
             throw new NotImplementedException();
         }
     }
-
-    
 }

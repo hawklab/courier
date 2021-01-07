@@ -13,13 +13,13 @@ namespace HawkLab.Courier.Servers.Web.Pages.Threads
     {
         private readonly IThreadRepository threadRepository;
 
-        [BindProperty]
-        public Thread Thread { get; set; }
-
         public EditModel(IThreadRepository threadRepository)
         {
             this.threadRepository = threadRepository;
         }
+
+        [BindProperty]
+        public Thread Thread { get; set; }
 
         public IActionResult OnGet(Guid? threadId)
         {

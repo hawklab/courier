@@ -3,7 +3,6 @@ namespace HawkLab.Data.Core.Persistence
     using System;
     using System.Collections.Generic;
     using HawkLab.Data.Core.Types;
-    
 
     public interface IThreadRepository
     {

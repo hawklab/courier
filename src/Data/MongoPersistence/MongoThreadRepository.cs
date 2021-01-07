@@ -1,19 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using HawkLab.Data.Core.Persistence;
-using HawkLab.Data.Core.Types;
-using Microsoft.VisualBasic;
-using MongoDB.Bson;
-using MongoDB.Driver;
-
 namespace HawkLab.Data.MongoPersistence
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Runtime.CompilerServices;
+    using HawkLab.Data.Core.Persistence;
+    using HawkLab.Data.Core.Types;
+    using Microsoft.VisualBasic;
+    using MongoDB.Bson;
+    using MongoDB.Driver;
+
     public class MongoThreadRepository : IThreadRepository
     {
-
         public MongoThreadRepository()
         {
             var client = new MongoClient("mongodb://localhost:27017");

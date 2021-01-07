@@ -7,7 +7,6 @@ namespace HawkLab.Data.Core.Persistence
     public interface IMessageRepository
     {
         // Message GetById(Guid id);
-
         Message Update(Message updatedMessage);
 
         Message Add(Message newMessage, Thread aThread);

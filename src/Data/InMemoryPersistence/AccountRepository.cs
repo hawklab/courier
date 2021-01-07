@@ -7,7 +7,7 @@ namespace HawkLab.Data.InMemoryPersistence
 
     public class AccountRepository : IAccountRepository
     {
-        private static List<Account> allAccounts = new List<Account>
+        private static readonly List<Account> AllAccounts = new()
         {
             new Account
             {
@@ -25,7 +25,7 @@ namespace HawkLab.Data.InMemoryPersistence
 
         public Account Get(string accountId)
         {
-            return allAccounts[0];
+            return AllAccounts[0];
         }
     }
 }
